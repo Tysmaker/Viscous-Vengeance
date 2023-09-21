@@ -5,6 +5,7 @@ using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     SpriteRenderer sr;
 
+    bool isGrounded;
+
     [SerializeField] float Speed = 1;
+    [SerializeField] float JumpSpeed = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+        Debug.Log(rb.velocity);
         AnimationUpdate();
     }
 
@@ -43,6 +48,9 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsMoving", false);
         }
+
+        animator.SetFloat("yVelocity", rb.velocity.y);
+        animator.SetBool("IsGrounded", isGrounded);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -60,8 +68,35 @@ public class PlayerMovement : MonoBehaviour
         else {
             direction = 0;
         }
-
-
         rb.velocity = new Vector2( direction * Speed, rb.velocity.y);
+    }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (context.started && isGrounded)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, JumpSpeed);  
+        } 
+        if (context.canceled && rb.velocity.y > 0) 
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+
     }
 }
