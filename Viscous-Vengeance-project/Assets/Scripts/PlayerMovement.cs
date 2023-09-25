@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer sr;
+    private BoxCollider2D coll;
+    [SerializeField] private LayerMask groundLayer;
 
     bool isGrounded;
 
@@ -23,12 +25,13 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sr= GetComponent<SpriteRenderer>();
+        coll = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rb.velocity);
+        //Debug.Log(rb.velocity);
         AnimationUpdate();
     }
 
@@ -50,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         animator.SetFloat("yVelocity", rb.velocity.y);
-        animator.SetBool("IsGrounded", isGrounded);
+        animator.SetBool("IsGrounded", IsGrounded());
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -73,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.started && isGrounded)
+        if (context.started && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpSpeed);  
         } 
@@ -83,19 +86,33 @@ public class PlayerMovement : MonoBehaviour
         }
     }
    
-    public void OnTriggerEnter2D(Collider2D collision)
+    //public void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        isGrounded = true;
+    //    }
+    //}
+
+    //public void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        isGrounded = false;
+    //    }
+    //}
+
+    private bool IsGrounded()
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, groundLayer);
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
-    }
+    //void OnDrawGizmos()
+    //{
+    //    // Draw a yellow sphere at the transform's position
+    //    Gizmos.color = Color.yellow;
+    //    //Gizmos.DrawSphere(transform.position, 1);
+    //    Gizmos.DrawCube(coll.bounds.center, coll.bounds.size);
+    //}
 }
+ 

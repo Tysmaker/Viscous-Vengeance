@@ -8,14 +8,15 @@ public class ElementsPickUp : MonoBehaviour
   
     //Variables
     public Transform player;
-    public TMP_Text text;
-    [SerializeField] private int elementCount = 0;
+   
     [SerializeField] private float pickUpSpeed;
     [SerializeField] private float pickUpDistance;
 
+    public ElementsUIPoints elementsUIPoints;
 
     private void Update()
     {
+
        //When player is within range of the pickUp, then the object will move towards the player
         if (player)
         {
@@ -23,13 +24,12 @@ public class ElementsPickUp : MonoBehaviour
 
             if(dist > pickUpDistance)
             {
-                return;
+               
             }
             else
             {
-                var step = pickUpSpeed * Time.deltaTime; // calculate distance to move
+                float step = pickUpSpeed * Time.deltaTime; // calculate distance to move
                 transform.position = Vector3.MoveTowards(transform.position, player.position, step);
-
             }
         }
     }
@@ -39,9 +39,9 @@ public class ElementsPickUp : MonoBehaviour
     {
         if(collider.gameObject.CompareTag("Player"))
         {
+            elementsUIPoints.elementScore++;
+            
             Destroy(gameObject);
-            elementCount++;
-            text.text = elementCount.ToString();           
-        }
+        }     
     }       
 }

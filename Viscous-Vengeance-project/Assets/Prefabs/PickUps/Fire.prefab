@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7069649354190415155}
   - component: {fileID: 6184159513394375345}
   - component: {fileID: 780130825420282835}
+  - component: {fileID: 7270098137808469661}
   m_Layer: 0
   m_Name: Fire
   m_TagString: PickUp
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8836632461193250499}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.28, y: -2.041747, z: 0}
+  m_LocalPosition: {x: 7.38, y: -2.041747, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -116,12 +117,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.03, y: 0.06}
   serializedVersion: 2
-  m_Radius: 0.26
+  m_Radius: 0.3
 --- !u!50 &6184159513394375345
 Rigidbody2D:
   serializedVersion: 4
@@ -162,7 +163,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  text: {fileID: 0}
-  elementCount: 0
   pickUpSpeed: 5
   pickUpDistance: 3
+  elementsUIPoints: {fileID: 0}
+--- !u!58 &7270098137808469661
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836632461193250499}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: b4c3b7335c0a9664bb007d2bdfdd932e, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.01
