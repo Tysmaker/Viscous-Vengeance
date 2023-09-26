@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2421288714937252053}
   - component: {fileID: 1986248151935302344}
   - component: {fileID: 5010061395254969673}
-  - component: {fileID: 5101460196752434386}
+  - component: {fileID: 4191911704666666283}
   m_Layer: 0
   m_Name: Earth
   m_TagString: PickUp
@@ -166,8 +166,8 @@ MonoBehaviour:
   pickUpSpeed: 5
   pickUpDistance: 3
   elementsUIPoints: {fileID: 0}
---- !u!58 &5101460196752434386
-CircleCollider2D:
+--- !u!61 &4191911704666666283
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -199,5 +199,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.625}
+    newSize: {x: 0.08, y: 0.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Size: {x: 0.5, y: 0.625}
+  m_EdgeRadius: 0
