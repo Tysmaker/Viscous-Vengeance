@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7069649354190415155}
   - component: {fileID: 6184159513394375345}
   - component: {fileID: 780130825420282835}
-  - component: {fileID: 7270098137808469661}
+  - component: {fileID: 1086628389875325119}
   m_Layer: 0
   m_Name: Fire
   m_TagString: PickUp
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &780130825420282835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,10 +164,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   pickUpSpeed: 5
-  pickUpDistance: 3
   elementsUIPoints: {fileID: 0}
---- !u!58 &7270098137808469661
-CircleCollider2D:
+--- !u!61 &1086628389875325119
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -199,5 +198,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.625}
+    newSize: {x: 0.08, y: 0.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Size: {x: 0.5, y: 0.625}
+  m_EdgeRadius: 0

@@ -13,19 +13,18 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     SpriteRenderer sr;
     private BoxCollider2D coll;
-    [SerializeField] private LayerMask groundLayer;
-
-    bool isGrounded;
+    private LayerMask groundLayer;
 
     [SerializeField] float Speed = 1;
     [SerializeField] float JumpSpeed = 1;
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sr= GetComponent<SpriteRenderer>();
         coll = GetComponent<BoxCollider2D>();
+        groundLayer = LayerMask.GetMask("Ground");
     }
 
     // Update is called once per frame
@@ -85,34 +84,10 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 0);
         }
     }
-   
-    //public void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Ground"))
-    //    {
-    //        isGrounded = true;
-    //    }
-    //}
-
-    //public void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Ground"))
-    //    {
-    //        isGrounded = false;
-    //    }
-    //}
 
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, groundLayer);
     }
-
-    //void OnDrawGizmos()
-    //{
-    //    // Draw a yellow sphere at the transform's position
-    //    Gizmos.color = Color.yellow;
-    //    //Gizmos.DrawSphere(transform.position, 1);
-    //    Gizmos.DrawCube(coll.bounds.center, coll.bounds.size);
-    //}
 }
  
