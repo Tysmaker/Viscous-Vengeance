@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.Search;
 
 public class ElementsPickUp : MonoBehaviour
 {
@@ -11,7 +10,6 @@ public class ElementsPickUp : MonoBehaviour
     public Transform player;
 
     [SerializeField] private float pickUpSpeed;
-    [SerializeField] private float pickUpDistance;
     private float radius = 3f;
     private LayerMask playerLayer;
     private bool collect;
