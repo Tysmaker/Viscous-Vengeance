@@ -21,6 +21,11 @@ public class PlayerHealthBar : MonoBehaviour
         {
             TakeDamage(10);
         }
+
+        if(currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void TakeDamage(int damage)
