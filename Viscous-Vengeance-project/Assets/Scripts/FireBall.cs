@@ -5,13 +5,29 @@ using UnityEngine;
 public class FireBall : MonoBehaviour
 {
     public float fireballSpeed;
-    
+    private PlayerMovement parent;
+    SpriteRenderer sr;
+    int direction;
+
+    public void Start()
+    {
+        parent = gameObject.transform.parent.GetComponent<PlayerMovement>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
+        if (parent.isFacingLeft)
+        {
+            direction = -1;
+        }
+        else
+        {
+            direction = 1;
+        }
+        sr.flipX = parent.isFacingLeft;
+    }
+
     // Update is called once per frame
     void Update()
     {
-
-        transform.position += transform.right * Time.deltaTime * fireballSpeed;
-        
+        transform.position += transform.right * Time.deltaTime * fireballSpeed * direction;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
