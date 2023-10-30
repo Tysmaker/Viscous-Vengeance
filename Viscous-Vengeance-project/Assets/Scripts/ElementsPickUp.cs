@@ -14,10 +14,12 @@ public class ElementsPickUp : MonoBehaviour
     private LayerMask playerLayer;
     private bool collect;
     public ElementsUIPoints elementsUIPoints;
+    //[SerializeField] ParticleSystem pickUpEffect;
 
     private void Start()
     {
         playerLayer = LayerMask.GetMask("Player");
+       
     }
 
     private void Update()
@@ -41,7 +43,10 @@ public class ElementsPickUp : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             elementsUIPoints.elementScore++;
-           Destroy(gameObject);
+
+            //pickUpEffect.Play();
+
+           Destroy(gameObject,1f);
         }
     }
 

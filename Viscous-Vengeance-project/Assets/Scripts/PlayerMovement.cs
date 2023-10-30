@@ -11,18 +11,25 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
-    SpriteRenderer sr;
     private BoxCollider2D coll;
     private LayerMask groundLayer;
+    public GameObject fireballPrefab;
+    public Transform fireballSpawnPoint;
+    bool isFacingRight = true;
 
+
+    [SerializeField] ParticleSystem slimeSplat;
     [SerializeField] float Speed = 1;
     [SerializeField] float JumpSpeed = 1;
+    
+    private bool isMoving;
+    float direction;
+
     // Start is called before the first frame update
     void Start()
     { 
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        sr= GetComponent<SpriteRenderer>();
         coll = GetComponent<BoxCollider2D>();
         groundLayer = LayerMask.GetMask("Ground");
     }
@@ -30,24 +37,42 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (IsGrounded())
+        {
+            slimeSplat.Play();
+            Invoke("StopSlimeSplat", 1f);
+        }
+
         //Debug.Log(rb.velocity);
         AnimationUpdate();
     }
 
+    private void FixedUpdate()
+    {
+
+        MoveCheck();
+        
+    }
+
+    private void StopSlimeSplat()
+    {
+        slimeSplat.Stop();
+    }
+
     private void AnimationUpdate()
     {
-        if (rb.velocity.x < 0)
+        if (rb.velocity.x < 0 && isFacingRight)
         {
-            sr.flipX = true;
+            Flip();
             animator.SetBool("IsMoving", true);
         }
-        else if (rb.velocity.x > 0)
+        else if (rb.velocity.x > 0 && !isFacingRight)
         {
-            sr.flipX = false;
+            Flip();
             animator.SetBool("IsMoving", true);
         }
-        else
-        {
+        else if(rb.velocity.x == 0)
+        { 
             animator.SetBool("IsMoving", false);
         }
 
@@ -55,22 +80,38 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsGrounded", IsGrounded());
     }
 
+    void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
+
     public void Move(InputAction.CallbackContext context)
     {
+      
         Vector2 contextVector = context.ReadValue<Vector2>();
-        float direction;
         if (contextVector.x < 0)
         {
             direction = -1;
+         
         }
         else if (contextVector.x > 0)
         {
             direction = 1;
-        }
-        else {
+           
+        }       
+        else
+        {
             direction = 0;
         }
-        rb.velocity = new Vector2( direction * Speed, rb.velocity.y);
+    }
+
+    public void Fireball(InputAction.CallbackContext context)
+    {
+       if(context.started)
+        {
+           Instantiate(fireballPrefab, fireballSpawnPoint.position, transform.rotation);
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -83,6 +124,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
         }
+    }
+   
+    private void MoveCheck()
+    {
+        rb.velocity = new Vector2(direction * Speed, rb.velocity.y);
     }
 
     private bool IsGrounded()
