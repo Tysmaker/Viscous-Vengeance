@@ -20371,7 +20371,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     type: 0
     collisionMode: 0
@@ -28799,8 +28799,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0019500256, y: -0.0012500286, z: 0}
-    m_Extent: {x: 1.00675, y: 1.00265, z: 0}
+    m_Center: {x: 0.0023500025, y: -0.002550006, z: 0}
+    m_Extent: {x: 1.00115, y: 1.00465, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
