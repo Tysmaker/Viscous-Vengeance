@@ -28340,8 +28340,6 @@ MonoBehaviour:
   slimeSplat: {fileID: 397518697}
   Speed: 5
   JumpSpeed: 20
-  DashSpeed: 5000
-  SlamSpeed: 5000
   FireBallCoolDownTime: 0.1
 --- !u!114 &1278428861
 MonoBehaviour:
@@ -28480,22 +28478,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 986cab10-4178-418f-9501-58fbc83797b2
     m_ActionName: Player/Dash[/Keyboard/leftShift]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1278428860}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Slam
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a517b6b3-836a-40e8-aa6e-4bcde0386f1c
-    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -28526,7 +28508,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!212 &1278428863
 SpriteRenderer:
@@ -28663,8 +28645,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.00084999204, y: 0.00009998679, z: 0}
-    m_Extent: {x: 0.99455, y: 0.998, z: 0}
+    m_Center: {x: 0.000050008297, y: -0.0023500323, z: 0}
+    m_Extent: {x: 0.99635, y: 1.00705, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

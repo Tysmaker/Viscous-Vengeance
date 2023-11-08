@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.UIElements;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
@@ -20,18 +20,15 @@ public class PlayerController : MonoBehaviour
     Vector3 fireballSpawnPoint;
     public bool isFacingLeft { get; private set; }
 
-    private bool canFire;
+    bool canFire;
 
 
     [SerializeField] ParticleSystem slimeSplat;
     [SerializeField] float Speed = 1;
     [SerializeField] float JumpSpeed = 1;
-    [SerializeField] float DashSpeed = 1;
-    [SerializeField] float SlamSpeed = 1;
     [SerializeField] float FireBallCoolDownTime = 1;
     
     private bool isMoving;
-    private bool canSplat;
     float direction;
 
     // Start is called before the first frame update
@@ -44,16 +41,18 @@ public class PlayerController : MonoBehaviour
         groundLayer = LayerMask.GetMask("Ground");
         isFacingLeft = false;
         canFire = true;
-        canSplat = false;
         fireballSpawnPoint = new Vector3(transform.position.x + 0.88f, transform.position.y - 0.14f, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (IsGrounded())
+        {
+            slimeSplat.Play();
+            Invoke("StopSlimeSplat", 1f);
+        }
         Flip();
-        SplatCheck();
         AnimationUpdate();
     }
 
@@ -62,14 +61,8 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(direction * Speed, rb.velocity.y);
     }
 
-    private void SplatCheck()
-    {
-       //fix here 
-    }
-
     private void StopSlimeSplat()
     {
-        canSplat = false;
         slimeSplat.Stop();
     }
 
@@ -139,28 +132,12 @@ public class PlayerController : MonoBehaviour
         canFire = true;
     }
 
-    public void Dash(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            rb.AddForce(new Vector2(direction * DashSpeed, 0));
-        }
-    }
-
-    public void Slam(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            rb.AddForce(new Vector2(0, -SlamSpeed));
-        }
-    }
-
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.started && IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, JumpSpeed);
-        }
+            rb.velocity = new Vector2(rb.velocity.x, JumpSpeed);  
+        } 
         if (context.canceled && rb.velocity.y > 0) 
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);

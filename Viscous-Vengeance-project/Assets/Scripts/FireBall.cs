@@ -5,13 +5,13 @@ using UnityEngine;
 public class FireBall : MonoBehaviour
 {
     public float fireballSpeed;
-    private PlayerController parent;
+    private PlayerMovement parent;
     SpriteRenderer sr;
     int direction;
 
     public void Start()
     {
-        parent = gameObject.transform.parent.GetComponent<PlayerController>();
+        parent = gameObject.transform.parent.GetComponent<PlayerMovement>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         if (parent.isFacingLeft)
         {
