@@ -4900,8 +4900,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.002450049, y: -0.0048999786, z: 0}
-    m_Extent: {x: 1.00355, y: 1.0014, z: 0}
+    m_Center: {x: 0.0027499795, y: -0.0009999871, z: 0}
+    m_Extent: {x: 1.0055499, y: 1.0074, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -31145,6 +31145,8 @@ MonoBehaviour:
   slimeSplat: {fileID: 1189853808}
   Speed: 5
   JumpSpeed: 20
+  DashSpeed: 1
+  SlamSpeed: 1
   FireBallCoolDownTime: 0.1
 --- !u!114 &1551188043
 MonoBehaviour:
