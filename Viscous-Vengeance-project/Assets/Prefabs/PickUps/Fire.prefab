@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6184159513394375345}
   - component: {fileID: 780130825420282835}
   - component: {fileID: 1086628389875325119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire
   m_TagString: PickUp
   m_Icon: {fileID: 0}
@@ -165,7 +165,6 @@ MonoBehaviour:
   player: {fileID: 0}
   pickUpSpeed: 8
   elementsUIPoints: {fileID: 0}
-  pickUpEffect: {fileID: 0}
 --- !u!61 &1086628389875325119
 BoxCollider2D:
   m_ObjectHideFlags: 0

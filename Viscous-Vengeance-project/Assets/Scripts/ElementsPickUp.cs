@@ -46,7 +46,7 @@ public class ElementsPickUp : MonoBehaviour
 
             //pickUpEffect.Play();
 
-           Destroy(gameObject,1f);
+           Destroy(gameObject);
         }
     }
 

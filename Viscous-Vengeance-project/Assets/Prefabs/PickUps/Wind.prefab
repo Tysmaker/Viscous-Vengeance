@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2088993368173233587}
   - component: {fileID: 1960406337957637285}
   - component: {fileID: 5079351103609933196}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wind
   m_TagString: PickUp
   m_Icon: {fileID: 0}
@@ -165,7 +165,6 @@ MonoBehaviour:
   player: {fileID: 0}
   pickUpSpeed: 8
   elementsUIPoints: {fileID: 0}
-  pickUpEffect: {fileID: 0}
 --- !u!61 &5079351103609933196
 BoxCollider2D:
   m_ObjectHideFlags: 0

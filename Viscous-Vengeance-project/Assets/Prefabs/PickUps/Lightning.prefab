@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6435913231693312439}
   - component: {fileID: 9033125281844750793}
   - component: {fileID: 471425585952290815}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lightning
   m_TagString: PickUp
   m_Icon: {fileID: 0}
@@ -130,7 +130,6 @@ MonoBehaviour:
   player: {fileID: 0}
   pickUpSpeed: 8
   elementsUIPoints: {fileID: 0}
-  pickUpEffect: {fileID: 0}
 --- !u!58 &9033125281844750793
 CircleCollider2D:
   m_ObjectHideFlags: 0
