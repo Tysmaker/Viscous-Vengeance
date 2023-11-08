@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Ground
   - PickUp
+<<<<<<< Updated upstream
   - Attack
+=======
+  - Turnaround
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
