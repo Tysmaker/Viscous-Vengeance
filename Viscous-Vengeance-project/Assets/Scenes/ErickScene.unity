@@ -4900,8 +4900,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0027499795, y: -0.0009999871, z: 0}
-    m_Extent: {x: 1.0055499, y: 1.0074, z: 0}
+    m_Center: {x: -0.0014500022, y: 0.0027000308, z: 0}
+    m_Extent: {x: 1.0065501, y: 1.0039, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5012,7 +5012,7 @@ GameObject:
   - component: {fileID: 680538512}
   m_Layer: 0
   m_Name: BoxTesting
-  m_TagString: Turnaround
+  m_TagString: TurnAround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5064,7 +5064,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3590466, y: -0.49245727}
+  m_Offset: {x: 0.3590466, y: 0.21892262}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5075,7 +5075,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28190678, y: 0.015085459}
+  m_Size: {x: 0.28190678, y: 1.4378452}
   m_EdgeRadius: 0
 --- !u!1 &692456124
 GameObject:
@@ -29846,7 +29846,7 @@ GameObject:
   - component: {fileID: 1343203210}
   m_Layer: 0
   m_Name: BoxTesting 2
-  m_TagString: Turnaround
+  m_TagString: TurnAround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29898,7 +29898,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.34782648, y: -2.1984806}
+  m_Offset: {x: -0.34782648, y: -1.4770813}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -29909,7 +29909,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.30434704, y: 0.0674212}
+  m_Size: {x: 0.30434704, y: 1.5102197}
   m_EdgeRadius: 0
 --- !u!1 &1345269419
 GameObject:
@@ -31145,8 +31145,6 @@ MonoBehaviour:
   slimeSplat: {fileID: 1189853808}
   Speed: 5
   JumpSpeed: 20
-  DashSpeed: 1
-  SlamSpeed: 1
   FireBallCoolDownTime: 0.1
 --- !u!114 &1551188043
 MonoBehaviour:
@@ -31285,6 +31283,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 986cab10-4178-418f-9501-58fbc83797b2
     m_ActionName: Player/Dash[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a517b6b3-836a-40e8-aa6e-4bcde0386f1c
+    m_ActionName: Player/Slam[/Keyboard/ctrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

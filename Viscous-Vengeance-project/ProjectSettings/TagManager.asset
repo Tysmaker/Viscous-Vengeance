@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - PickUp
+  - Attack
+  - Undefined
+  - TurnAround
   layers:
   - Default
   - TransparentFX
