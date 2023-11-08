@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] public float Speed;
+    
     int xDirection;
 
     Rigidbody2D rb;
@@ -43,6 +44,26 @@ public class EnemyController : MonoBehaviour
         if(collision.gameObject.CompareTag("Attack"))
         {
             EnemyDeath();
+        }
+        else if (collision.gameObject.CompareTag("Player")){
+            animator.SetBool("enemyClose", true);
+            if (collision.gameObject.transform.position.x < transform.position.x)
+            {
+                xDirection = -1;
+            }
+            else if (collision.gameObject.transform.position.x > transform.position.x)
+            {
+                xDirection = 1;
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+            animator.SetBool("enemyClose", false);
         }
     }
 
