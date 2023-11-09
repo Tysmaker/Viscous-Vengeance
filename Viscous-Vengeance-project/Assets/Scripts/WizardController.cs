@@ -26,7 +26,7 @@ public class WizardController : EnemyController
         while (ShootFireBall == true)
         {
             Speed = 0;
-            animator.SetBool("enemyAttack", true);
+            //animator.SetBool("enemyAttack", true);
             Instantiate(Fireball, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(fireBallInterval);
         }
