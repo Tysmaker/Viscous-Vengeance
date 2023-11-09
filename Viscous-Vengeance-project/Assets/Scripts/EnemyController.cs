@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     Collider2D col;
     Animation anim;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         xDirection = -1; 
         rb = GetComponent<Rigidbody2D>();
@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate() //only physics and movements
+    public void FixedUpdate() //only physics and movements
     {
         rb.velocity = new Vector2(Speed * xDirection, rb.velocity.y);
         if (xDirection == 1) 
