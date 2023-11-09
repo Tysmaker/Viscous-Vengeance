@@ -1006,19 +1006,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 221576823}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &221576823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7726,8 +7714,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0013000071, y: 0.0010499954, z: 0}
-    m_Extent: {x: 1.001, y: 1.00515, z: 0}
+    m_Center: {x: 0.00050002337, y: -0.00024998188, z: 0}
+    m_Extent: {x: 1.0026, y: 1.00955, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

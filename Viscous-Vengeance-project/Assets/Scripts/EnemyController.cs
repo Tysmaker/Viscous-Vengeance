@@ -5,14 +5,12 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] public float Speed;
-    
-    int xDirection;
+    public int xDirection;
 
-    Rigidbody2D rb;
-    SpriteRenderer sr;
-    Animator animator;
-    Collider2D col;
-    Animation anim;
+    public Rigidbody2D rb;
+    public SpriteRenderer sr;
+    public Animator animator;
+    public Collider2D col;
     // Start is called before the first frame update
     public void Start()
     {
@@ -27,7 +25,10 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     public void FixedUpdate() //only physics and movements
     {
-        rb.velocity = new Vector2(Speed * xDirection, rb.velocity.y);
+        if (rb != null)
+        {
+            rb.velocity = new Vector2(Speed * xDirection, rb.velocity.y);
+        }
         if (xDirection == 1) 
         {
             sr.flipX = false;

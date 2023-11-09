@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class WizardController : EnemyController
 {
-    [SerializeField] bool ShootFireBall;
-    [SerializeField] public float fireBallInterval = 2.0f;
+    bool ShootFireBall;
+    public float fireBallInterval = 2.0f;
     public bool isFacingLeft;
     public float fireballSpeed;
     private WizardController enemy;
-    SpriteRenderer sr;
     int direction;
-    Animator animator;
 
     //public Animator animator;
 
     public GameObject Fireball;
 
-
-     void Start()
+    new void Start()
     {
+        xDirection = -1;
+        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        col = GetComponent<Collider2D>();
+        sr.flipX = true;
         enemy = GetComponent<WizardController>();
-        animator = GetComponentInParent<Animator>();
         //animator = GetComponentInParent<Animator>();
         // Start shooting fireballs when the WizardController is enabled
         StartCoroutine(ShootFireballs());
@@ -36,11 +38,6 @@ public class WizardController : EnemyController
             direction = 1;
         }
         sr.flipX = enemy.isFacingLeft;
-    }
-
-    void FixedUpdate()
-    {
-        transform.position += transform.right * Time.deltaTime * fireballSpeed * direction;
     }
 
     IEnumerator ShootFireballs()
