@@ -12423,9 +12423,9 @@ GameObject:
   - component: {fileID: 1278428863}
   - component: {fileID: 1278428862}
   - component: {fileID: 1278428861}
-  - component: {fileID: 1278428860}
   - component: {fileID: 1278428859}
   - component: {fileID: 1278428857}
+  - component: {fileID: 1278428866}
   - component: {fileID: 1278428865}
   m_Layer: 6
   m_Name: Slime
@@ -12500,23 +12500,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1278428860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278428856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c6f7758f374e4a43ba140223a99b8b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireballPrefab: {fileID: 5579380553701081398, guid: e595a048404d8e94a97650792eab5540, type: 3}
-  slimeSplat: {fileID: 397518697}
-  Speed: 5
-  JumpSpeed: 20
-  FireBallCoolDownTime: 0.1
 --- !u!114 &1278428861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12544,8 +12527,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1278428860}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 1278428866}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
         m_Arguments:
@@ -12564,8 +12547,8 @@ MonoBehaviour:
     m_ActionName: Player/Look[/Mouse/delta,/Touchscreen/delta,/Pen/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1278428860}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 1278428866}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Fireball
         m_Mode: 0
         m_Arguments:
@@ -12620,8 +12603,8 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1278428860}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 1278428866}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
         m_Arguments:
@@ -12640,8 +12623,8 @@ MonoBehaviour:
     m_ActionName: Abilites/New action[/Keyboard/1]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1278428860}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 1278428866}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Dash
         m_Mode: 0
         m_Arguments:
@@ -12654,6 +12637,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 986cab10-4178-418f-9501-58fbc83797b2
     m_ActionName: Player/Dash[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1278428866}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Slam
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 20495600-f06c-433d-8fd1-707e1caab7e8
+    m_ActionName: Player/Slam[/Keyboard/ctrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -12684,7 +12683,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &1278428863
 SpriteRenderer:
@@ -12769,7 +12768,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 366404088}
+--- !u!114 &1278428866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278428856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd27410f14f6e8443985ab4f70180ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 5579380553701081398, guid: e595a048404d8e94a97650792eab5540, type: 3}
+  slimeSplat: {fileID: 397518697}
+  Speed: 5
+  JumpSpeed: 20
+  DashSpeed: 8000
+  SlamSpeed: 3000
+  FireBallCoolDownTime: 1
 --- !u!1 &1438393391
 GameObject:
   m_ObjectHideFlags: 0
