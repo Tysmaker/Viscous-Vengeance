@@ -13,6 +13,8 @@ public class WizardController : EnemyController
     int direction;
     Animator animator;
 
+    //public Animator animator;
+
     public GameObject Fireball;
 
 
@@ -20,7 +22,7 @@ public class WizardController : EnemyController
     {
         enemy = GetComponent<WizardController>();
         animator = GetComponentInParent<Animator>();
-        animator = GetComponentInParent<Animator>();
+        //animator = GetComponentInParent<Animator>();
         // Start shooting fireballs when the WizardController is enabled
         StartCoroutine(ShootFireballs());
         isFacingLeft = true;
