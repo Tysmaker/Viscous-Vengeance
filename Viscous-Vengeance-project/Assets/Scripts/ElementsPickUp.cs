@@ -2,24 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class ElementsPickUp : MonoBehaviour
 {
 
     //Variables
-    public Transform player;
+    GameObject player;
 
     [SerializeField] private float pickUpSpeed;
     private float radius = 3f;
     private LayerMask playerLayer;
     private bool collect;
     public ElementsUIPoints elementsUIPoints;
+
     //[SerializeField] ParticleSystem pickUpEffect;
 
     private void Start()
     {
         playerLayer = LayerMask.GetMask("Player");
-       
+        player = GameObject.Find("Slime");
+        elementsUIPoints = GameObject.Find("Elements").GetComponent<ElementsUIPoints>();
     }
 
     private void Update()
@@ -33,7 +36,7 @@ public class ElementsPickUp : MonoBehaviour
         if (collect)
         {
             float step = pickUpSpeed * Time.deltaTime; // calculate distance to move
-            transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
         }
     }
 
@@ -42,11 +45,33 @@ public class ElementsPickUp : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            elementsUIPoints.elementScore++;
-
-            //pickUpEffect.Play();
-
+            AddCharge(gameObject.name);
+           //pickUpEffect.Play();
            Destroy(gameObject);
+        }
+    }
+
+    public void AddCharge(string name)
+    {
+        PlayerController pc = player.GetComponent<PlayerController>();
+        switch (name)
+        {
+            case "Fire(Clone)":
+                elementsUIPoints.FireCharges++;
+                pc.FireCharges++;
+                break;
+            case "Wind(Clone)":
+                elementsUIPoints.WindCharges++;
+                pc.WindCharges++;
+                break;
+            case "Lightning(Clone)":
+                elementsUIPoints.LightningCharges++;
+                pc.LightningCharges++;
+                break;
+            case "Earth(Clone)":
+                elementsUIPoints.EarthCharges++;
+                pc.EarthCharges++;
+                break;                          
         }
     }
 

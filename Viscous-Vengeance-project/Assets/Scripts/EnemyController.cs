@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] public float Speed;
+    
     public int xDirection;
 
     public Rigidbody2D rb;
     public SpriteRenderer sr;
     public Animator animator;
     public Collider2D col;
+
+    public GameObject Pickup;
     // Start is called before the first frame update
     public void Start()
     {
@@ -62,8 +65,7 @@ public class EnemyController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
-
+        { 
             animator.SetBool("enemyClose", false);
         }
     }
@@ -81,8 +83,15 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(DeathTimer());
     }
 
+    public void PickupCreation()
+    {
+        Instantiate(Pickup);        
+        Instantiate(Pickup);
+    }
+
     IEnumerator DeathTimer()
     {
+        PickupCreation();
         Destroy(rb);
         col.enabled = false;
         Speed = 0;

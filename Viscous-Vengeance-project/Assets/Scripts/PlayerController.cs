@@ -32,6 +32,12 @@ public class PlayerController : MonoBehaviour
 
     private bool isMoving;
     private bool canSplat;
+
+    public int FireCharges;
+    public int WindCharges;
+    public int LightningCharges;
+    public int EarthCharges;
+
     float direction;
 
     // Start is called before the first frame update
@@ -41,20 +47,28 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
+
         groundLayer = LayerMask.GetMask("Ground");
+
         isFacingLeft = false;
         canFire = true;
         canSplat = false;
+
+        FireCharges = 0;
+        WindCharges = 0;
+        LightningCharges = 0;
+        EarthCharges = 0;
+
         fireballSpawnPoint = new Vector3(transform.position.x + 0.88f, transform.position.y - 0.14f, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Flip();
         SplatCheck();
         AnimationUpdate();
+        ChargesUpdate();
     }
 
     private void FixedUpdate()
@@ -89,6 +103,11 @@ public class PlayerController : MonoBehaviour
         }
         animator.SetFloat("yVelocity", rb.velocity.y);
         animator.SetBool("IsGrounded", IsGrounded());
+    }
+
+    private void ChargesUpdate()
+    {
+
     }
 
     void Flip()

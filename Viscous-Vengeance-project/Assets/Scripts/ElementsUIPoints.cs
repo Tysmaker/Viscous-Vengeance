@@ -5,12 +5,34 @@ using TMPro;
 
 public class ElementsUIPoints : MonoBehaviour
 {
-    public int elementScore = 0;
+    public int FireCharges;
+    public int WindCharges;
+    public int LightningCharges;
+    public int EarthCharges;
 
-    public TMP_Text text;
+    TextMeshProUGUI Fire;
+    TextMeshProUGUI Wind;
+    TextMeshProUGUI Lightning;
+    TextMeshProUGUI Earth;
+
+    private void Start()
+    {
+        FireCharges = 0;
+        WindCharges = 0;
+        LightningCharges = 0;
+        EarthCharges = 0;
+
+        Fire = GameObject.Find("FireText").GetComponent<TextMeshProUGUI>();
+        Wind = GameObject.Find("WindText").GetComponent<TextMeshProUGUI>();
+        Lightning = GameObject.Find("LightningText").GetComponent<TextMeshProUGUI>();
+        Earth = GameObject.Find("EarthText").GetComponent<TextMeshProUGUI>();
+    }
 
     private void Update()
     {
-        text.text = elementScore.ToString();
+        Fire.text = FireCharges.ToString();
+        Wind.text = WindCharges.ToString();
+        Lightning.text = LightningCharges.ToString();
+        Earth.text = EarthCharges.ToString();
     }
 }
