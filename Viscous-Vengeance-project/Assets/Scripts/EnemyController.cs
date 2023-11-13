@@ -13,6 +13,9 @@ public class EnemyController : MonoBehaviour
     public Animator animator;
     public Collider2D col;
 
+    public GameObject healthBarObject;
+    private PlayerHealthBar playerHealthBar;
+
     public GameObject Pickup;
     // Start is called before the first frame update
     public void Start()
@@ -23,6 +26,7 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         sr.flipX = true;
+        InitializeHealth();
     }
 
     // Update is called once per frame
@@ -51,6 +55,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player")){
             animator.SetBool("enemyClose", true);
+            playerHealthBar.TakeDamage(20);
             if (collision.gameObject.transform.position.x < transform.position.x)
             {
                 xDirection = -1;
@@ -60,6 +65,12 @@ public class EnemyController : MonoBehaviour
                 xDirection = 1;
             }
         }
+    }
+
+    public void InitializeHealth()
+    {
+        healthBarObject = GameObject.Find("Slime");
+        playerHealthBar = healthBarObject.GetComponent<PlayerHealthBar>();
     }
 
     private void OnCollisionExit2D(Collision2D collision)

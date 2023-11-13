@@ -29,6 +29,9 @@ public class WizardController : EnemyController
         StartCoroutine(ShootFireballs());
         isFacingLeft = true;
         sr = gameObject.GetComponent<SpriteRenderer>();
+        InitializeHealth();
+
+
         if (enemy.isFacingLeft)
         {
             direction = -1;

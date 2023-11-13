@@ -5,28 +5,24 @@ using UnityEngine;
 
 public class SpikeTrap : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-    public HealthBar healthBar;
-    public int Health { get; set; }
+    public GameObject healthBarObject;   
+    private PlayerHealthBar playerHealthBar;
 
-    public void Damage()
+    private void Start()
     {
-        Health = currentHealth;
+        healthBarObject = GameObject.Find("Slime");
+        playerHealthBar = healthBarObject.GetComponent<PlayerHealthBar>();      
     }
 
-    void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
 
-        healthBar.SetHealth(currentHealth);
-    }
 
-    void OnTriggerEnter2D(Collider2D collider)
+
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collider.gameObject.CompareTag("Player"))
-        {
-            TakeDamage(20);
+        if(collision.gameObject.CompareTag("Player")) 
+         {
+            playerHealthBar.TakeDamage(20);
         }
 
     }

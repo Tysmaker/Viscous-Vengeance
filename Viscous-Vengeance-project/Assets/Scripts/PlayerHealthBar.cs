@@ -17,10 +17,10 @@ public class PlayerHealthBar : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            TakeDamage(10);
-        }
+        //if(Input.GetKeyDown(KeyCode.L))
+        //{
+        //    TakeDamage(10);
+        //}
 
         if(currentHealth <= 0)
         {
@@ -28,7 +28,7 @@ public class PlayerHealthBar : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
