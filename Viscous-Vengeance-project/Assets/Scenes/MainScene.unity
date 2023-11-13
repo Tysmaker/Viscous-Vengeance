@@ -2864,7 +2864,7 @@ Transform:
   m_GameObject: {fileID: 276500979}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.023, y: 1.801, z: 0}
+  m_LocalPosition: {x: 4.47, y: 1.801, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3534,8 +3534,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.015749991, y: 1.24375, z: 0}
-    m_Extent: {x: 1.3029499, y: 2.21695, z: 0}
+    m_Center: {x: 0.011550009, y: 1.2508, z: 0}
+    m_Extent: {x: 1.29245, y: 2.2227, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5585,10 +5585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb83f5d8e5e71a2408b7cbad5de2e233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
   healthBarObject: {fileID: 0}
-  healthBar: {fileID: 0}
 --- !u!61 &568687740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5929,6 +5926,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   animator: {fileID: 0}
   col: {fileID: 0}
+  healthBarObject: {fileID: 0}
   Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
 --- !u!61 &643950154
 BoxCollider2D:
@@ -25313,7 +25311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4699246067104845819, guid: 173fe42b961c30e479ca854508398d2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.35
+      value: -2.47
       objectReference: {fileID: 0}
     - target: {fileID: 4699246067104845819, guid: 173fe42b961c30e479ca854508398d2a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26746,6 +26744,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   animator: {fileID: 0}
   col: {fileID: 0}
+  healthBarObject: {fileID: 0}
   Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
 --- !u!61 &1191447089
 BoxCollider2D:
@@ -37693,6 +37692,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   animator: {fileID: 0}
   col: {fileID: 0}
+  healthBarObject: {fileID: 0}
   Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
 --- !u!61 &1844989867
 BoxCollider2D:
@@ -37827,7 +37827,7 @@ Transform:
   m_GameObject: {fileID: 1844989864}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.41, y: -2.29, z: 0}
+  m_LocalPosition: {x: 14.84, y: -2.29, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -39528,7 +39528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4699246067104845819, guid: 173fe42b961c30e479ca854508398d2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.867
+      value: 12.59
       objectReference: {fileID: 0}
     - target: {fileID: 4699246067104845819, guid: 173fe42b961c30e479ca854508398d2a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39564,11 +39564,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947622564581865247, guid: 173fe42b961c30e479ca854508398d2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.023
+      value: 4.22
       objectReference: {fileID: 0}
     - target: {fileID: 7947622564581865247, guid: 173fe42b961c30e479ca854508398d2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.801
+      value: 1.91
       objectReference: {fileID: 0}
     - target: {fileID: 8167556952059705433, guid: 173fe42b961c30e479ca854508398d2a, type: 3}
       propertyPath: m_Name
@@ -39886,7 +39886,7 @@ Transform:
   m_GameObject: {fileID: 2059832947}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.097351, y: -2.08999, z: -12.059999}
+  m_LocalPosition: {x: 1.062881, y: -2.08999, z: -12.059999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40110,7 +40110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947622564581865247, guid: 173fe42b961c30e479ca854508398d2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.71
+      value: 10.37
       objectReference: {fileID: 0}
     - target: {fileID: 8167556952059705433, guid: 173fe42b961c30e479ca854508398d2a, type: 3}
       propertyPath: m_Name
