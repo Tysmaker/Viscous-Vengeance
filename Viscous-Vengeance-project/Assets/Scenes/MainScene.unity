@@ -1047,6 +1047,10 @@ PrefabInstance:
       propertyPath: Pickup
       value: 
       objectReference: {fileID: 8836632461193250499, guid: 783107c4b2622314c95b9011e12d0252, type: 3}
+    - target: {fileID: 5423554508145944196, guid: 3ea31f7e041b3eb44a78fc49c8ca48f5, type: 3}
+      propertyPath: fireballSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3534,8 +3538,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.015749991, y: 1.24375, z: 0}
-    m_Extent: {x: 1.3029499, y: 2.21695, z: 0}
+    m_Center: {x: 0.011999965, y: 1.24895, z: 0}
+    m_Extent: {x: 1.3016, y: 2.21845, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5585,10 +5589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb83f5d8e5e71a2408b7cbad5de2e233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
   healthBarObject: {fileID: 0}
-  healthBar: {fileID: 0}
 --- !u!61 &568687740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5929,6 +5930,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   animator: {fileID: 0}
   col: {fileID: 0}
+  healthBarObject: {fileID: 0}
   Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
 --- !u!61 &643950154
 BoxCollider2D:
@@ -7537,6 +7539,10 @@ PrefabInstance:
       propertyPath: Pickup
       value: 
       objectReference: {fileID: 4800634941354677485, guid: a6be6c6dc1b2da0478b1ea3502f15858, type: 3}
+    - target: {fileID: 5423554508145944196, guid: 3ea31f7e041b3eb44a78fc49c8ca48f5, type: 3}
+      propertyPath: fireballSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23690,6 +23696,10 @@ PrefabInstance:
       propertyPath: Pickup
       value: 
       objectReference: {fileID: 8836632461193250499, guid: 783107c4b2622314c95b9011e12d0252, type: 3}
+    - target: {fileID: 5423554508145944196, guid: 3ea31f7e041b3eb44a78fc49c8ca48f5, type: 3}
+      propertyPath: fireballSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24408,6 +24418,10 @@ PrefabInstance:
       propertyPath: Pickup
       value: 
       objectReference: {fileID: 4800634941354677485, guid: a6be6c6dc1b2da0478b1ea3502f15858, type: 3}
+    - target: {fileID: 5423554508145944196, guid: 3ea31f7e041b3eb44a78fc49c8ca48f5, type: 3}
+      propertyPath: fireballSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8341429036886102114, guid: 3ea31f7e041b3eb44a78fc49c8ca48f5, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -26746,6 +26760,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   animator: {fileID: 0}
   col: {fileID: 0}
+  healthBarObject: {fileID: 0}
   Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
 --- !u!61 &1191447089
 BoxCollider2D:
@@ -37693,6 +37708,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   animator: {fileID: 0}
   col: {fileID: 0}
+  healthBarObject: {fileID: 0}
   Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
 --- !u!61 &1844989867
 BoxCollider2D:
