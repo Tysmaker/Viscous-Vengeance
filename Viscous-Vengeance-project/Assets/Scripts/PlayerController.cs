@@ -28,10 +28,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float JumpSpeed = 1;
     [SerializeField] float DashSpeed = 1;
     [SerializeField] float SlamSpeed = 1;
+    [SerializeField] float DashTime = 1;
     [SerializeField] float FireBallCoolDownTime = 1;
 
     private bool isMoving;
     private bool canSplat;
+    private bool isDashing;
+    private bool isSlamming;
+
+    public bool isJumping { get; private set; }
 
     public int FireCharges;
     public int WindCharges;
@@ -53,6 +58,9 @@ public class PlayerController : MonoBehaviour
         isFacingLeft = false;
         canFire = true;
         canSplat = false;
+        
+        isDashing = false;
+        isJumping = false;
 
         FireCharges = 0;
         WindCharges = 0;
@@ -73,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(direction * Speed, rb.velocity.y);
+        MovementUpdate();
     }
 
     private void SplatCheck()
@@ -104,6 +112,27 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("yVelocity", rb.velocity.y);
         animator.SetBool("IsGrounded", IsGrounded());
     }
+
+    private void MovementUpdate()
+    {
+        float targetSpeed;
+        if(isDashing)
+        {
+            targetSpeed = DashSpeed;
+        }
+        else
+        {
+            targetSpeed = Speed;
+        }
+        rb.velocity = new Vector2(direction * targetSpeed, rb.velocity.y);
+
+        if(isSlamming && IsGrounded())
+        {
+            rb.velocity = new Vector2(rb.velocity.x, JumpSpeed);
+            isSlamming= false;
+        }
+    }
+
 
     private void ChargesUpdate()
     {
@@ -162,20 +191,38 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            rb.AddForce(new Vector2(direction * DashSpeed, 0));
+            isDashing= true;
+            Invoke("DashCooldown", DashTime);
         }
+    }
+
+    private void DashCooldown()
+    {
+        isDashing= false;
     }
 
     public void Slam(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && !IsGrounded())
         {
+            isSlamming= true;
+            isJumping = false;
             rb.AddForce(new Vector2(0, -SlamSpeed));
         }
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
+        if (context.started)
+        {
+            isJumping = true;
+
+        }
+        else if (context.canceled && isJumping)
+        {
+            isJumping = false;
+        }
+
         if (context.started && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpSpeed);
@@ -183,7 +230,7 @@ public class PlayerController : MonoBehaviour
         if (context.canceled && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-        }
+        }   
     }
     private bool IsGrounded()
     {

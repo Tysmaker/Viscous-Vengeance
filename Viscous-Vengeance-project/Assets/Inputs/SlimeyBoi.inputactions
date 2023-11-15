@@ -347,11 +347,33 @@
                 },
                 {
                     "name": "",
+                    "id": "b9364b20-8cfa-47e9-a7aa-a121e39634a3",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6300d2a3-ee52-4cb2-be7e-e2a32a34dc66",
                     "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "Slam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1491c12b-7101-454d-80f6-085af4b5d4a3",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Slam",
                     "isComposite": false,
                     "isPartOfComposite": false
