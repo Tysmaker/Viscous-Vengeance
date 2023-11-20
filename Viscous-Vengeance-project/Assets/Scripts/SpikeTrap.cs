@@ -14,10 +14,6 @@ public class SpikeTrap : MonoBehaviour
         playerHealthBar = healthBarObject.GetComponent<PlayerHealthBar>();      
     }
 
-
-
-
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player")) 

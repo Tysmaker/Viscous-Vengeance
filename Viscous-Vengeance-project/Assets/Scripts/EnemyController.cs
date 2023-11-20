@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     private PlayerHealthBar playerHealthBar;
 
     public GameObject Pickup;
+    public int PickupCount;
     // Start is called before the first frame update
     public void Start()
     {
@@ -94,15 +95,17 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(DeathTimer());
     }
 
-    public void PickupCreation()
+    public void PickupCreation(int num)
     {
-        Instantiate(Pickup);        
-        Instantiate(Pickup);
+        for(int i =0; i <= num; i++)
+        {
+            Instantiate(Pickup, transform.position, transform.rotation);
+        }
     }
 
     IEnumerator DeathTimer()
     {
-        PickupCreation();
+        PickupCreation(PickupCount);
         Destroy(rb);
         col.enabled = false;
         Speed = 0;
