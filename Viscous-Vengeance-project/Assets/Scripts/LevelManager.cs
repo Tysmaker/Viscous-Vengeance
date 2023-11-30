@@ -14,8 +14,7 @@ public class LevelManager : MonoBehaviour
     //Loads the level after playing the transition, and loads the next build index (Ex. if you're on level one it will load level two etc.)
     public void loadNextLevel()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-       
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1)); 
     }
 
     public void loadMainMenu()

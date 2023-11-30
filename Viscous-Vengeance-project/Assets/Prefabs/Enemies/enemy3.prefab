@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1912772931695577095}
   - component: {fileID: 1993296139783908624}
   - component: {fileID: 8210535459316495094}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyKillBox (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.24640799, y: 0.36135924}
+  m_Offset: {x: 0.24640799, y: 0.72}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 2021603537986684119}
   - component: {fileID: 5423554508145944196}
   - component: {fileID: 7750422820617015783}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: enemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,10 +238,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2900741}
+  m_Offset: {x: 0, y: 0.21}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.9, y: 1}
     newSize: {x: 0.9, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -265,12 +265,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1.5
   xDirection: 0
-  rb: {fileID: 0}
-  sr: {fileID: 0}
-  animator: {fileID: 0}
-  col: {fileID: 0}
+  rb: {fileID: 8825062821332447706}
+  sr: {fileID: 8341429036886102114}
+  animator: {fileID: 7750422820617015783}
+  col: {fileID: 1993296139783908624}
   healthBarObject: {fileID: 0}
-  Pickup: {fileID: 0}
+  Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
+  PickupCount: 0
   fireBallInterval: 2
   isFacingLeft: 0
   fireballSpeed: 0

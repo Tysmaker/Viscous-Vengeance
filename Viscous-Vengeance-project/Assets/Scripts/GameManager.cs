@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     [SerializeField]
     private GameObject _startingSceneTransition;
 
@@ -15,6 +16,5 @@ public class GameManager : MonoBehaviour
         _startingSceneTransition.SetActive(true);
         Invoke("_startingSceneTransition", 5f);
     }
-
 
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2821747085712101045}
   - component: {fileID: 628332885968462449}
   - component: {fileID: 2734122581530547373}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyKillBox (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.65831864, y: 0.26894125}
+  m_Offset: {x: 0.58, y: 0.64}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 8264704725559481294}
   - component: {fileID: 1013134165842420076}
   - component: {fileID: 1369557451557060083}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: enemy2
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -214,12 +214,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1.45
   xDirection: 0
-  rb: {fileID: 0}
-  sr: {fileID: 0}
-  animator: {fileID: 0}
-  col: {fileID: 0}
+  rb: {fileID: 1013134165842420076}
+  sr: {fileID: 7824196721219501943}
+  animator: {fileID: 683256476561123378}
+  col: {fileID: 628332885968462449}
   healthBarObject: {fileID: 0}
-  Pickup: {fileID: 0}
+  Pickup: {fileID: 357518345422163574, guid: 516925dec4ffd2e4fbe48bdd6b9291a7, type: 3}
+  PickupCount: 0
 --- !u!50 &1013134165842420076
 Rigidbody2D:
   serializedVersion: 4
@@ -279,10 +280,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0032832325, y: -0.15213105}
+  m_Offset: {x: -0.01, y: 0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.1, y: 0.85}
     newSize: {x: 0.44, y: 0.34}
     adaptiveTilingThreshold: 0.5
