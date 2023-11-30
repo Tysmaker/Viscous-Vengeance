@@ -179,6 +179,7 @@ MonoBehaviour:
   sr: {fileID: 3516246805202765837}
   animator: {fileID: 6094828067052110282}
   col: {fileID: 1617476129617836403}
+  col2: {fileID: 5536234191042164957}
   healthBarObject: {fileID: 0}
   Pickup: {fileID: 8836632461193250499, guid: 783107c4b2622314c95b9011e12d0252, type: 3}
   PickupCount: 0

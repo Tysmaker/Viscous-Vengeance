@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -12,22 +13,31 @@ public class EnemyController : MonoBehaviour
     public SpriteRenderer sr;
     public Animator animator;
     public Collider2D col;
+    public Collider2D col2;
+    private float radius = 10f;
+    private LayerMask playerLayer;
 
     public GameObject healthBarObject;
     private PlayerHealthBar playerHealthBar;
 
     public GameObject Pickup;
     public int PickupCount;
+    
+    private EnemyManager enemyManager;
+
     // Start is called before the first frame update
     public void Start()
     {
+        playerLayer = LayerMask.GetMask("Player");
         xDirection = -1; 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        col = GetComponent<Collider2D>();
         sr.flipX = true;
         InitializeHealth();
+        enemyManager = FindAnyObjectByType<EnemyManager>();
+        enemyManager.enemyCount++;
+        col2 = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -45,6 +55,16 @@ public class EnemyController : MonoBehaviour
         {
             sr.flipX = true;
         }
+
+        //if(IsInRange())
+        //{
+        //    animator.SetBool("enemyClose", true);
+        //}
+        //else
+        //{
+        //    animator.SetBool("enemyClose", false);
+        //}
+            
         
     }
 
@@ -92,7 +112,8 @@ public class EnemyController : MonoBehaviour
 
     public void EnemyDeath()
     {
-        StartCoroutine(DeathTimer());
+      
+        StartCoroutine(DeathTimer());   
     }
 
     public void PickupCreation(int num)
@@ -103,11 +124,19 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    //private bool IsInRange()
+    //{
+    //    return Physics2D.OverlapCircle(transform.position, radius, playerLayer);
+    //}
+
+
     IEnumerator DeathTimer()
     {
+        enemyManager.enemyCount--;
         PickupCreation(PickupCount);
         Destroy(rb);
         col.enabled = false;
+        col2.enabled = false;
         Speed = 0;
         animator.SetBool("enemyDeath", true);
         yield return new WaitForSeconds(3);

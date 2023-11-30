@@ -8,41 +8,19 @@ public class WizardController : EnemyController
     public float fireBallInterval = 2.0f;
     public bool isFacingLeft;
     public float fireballSpeed;
-    private WizardController enemy;
     int direction;
 
     //public Animator animator;
 
     public GameObject Fireball;
 
-    new void Start()
+
+    private void Update()
     {
-        xDirection = -1;
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-        col = GetComponent<Collider2D>();
-        sr.flipX = true;
-        enemy = GetComponent<WizardController>();
-        //animator = GetComponentInParent<Animator>();
-        // Start shooting fireballs when the WizardController is enabled
         StartCoroutine(ShootFireballs());
-        isFacingLeft = true;
-        sr = gameObject.GetComponent<SpriteRenderer>();
-        InitializeHealth();
-
-
-        if (enemy.isFacingLeft)
-        {
-            direction = -1;
-        }
-        else
-        {
-            direction = 1;
-        }
-        sr.flipX = enemy.isFacingLeft;
     }
 
+    
     IEnumerator ShootFireballs()
     {
         while (ShootFireBall)
@@ -53,4 +31,4 @@ public class WizardController : EnemyController
             yield return new WaitForSeconds(fireBallInterval);
         }
     }
-}
+}   
