@@ -19432,7 +19432,7 @@ Transform:
   m_GameObject: {fileID: 490058410}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.100607, y: 21.949999, z: -12.059999}
+  m_LocalPosition: {x: -2.0901945, y: 21.949999, z: -12.059999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31611,8 +31611,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0062999725, y: 1.2436501, z: 0}
-    m_Extent: {x: 1.2974, y: 2.21585, z: 0}
+    m_Center: {x: 0.00940001, y: 1.2462499, z: 0}
+    m_Extent: {x: 1.2993, y: 2.21645, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -31954,6 +31954,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   animator: {fileID: 0}
   col: {fileID: 0}
+  col2: {fileID: 0}
   healthBarObject: {fileID: 0}
   Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
   PickupCount: 0
@@ -31992,7 +31993,7 @@ BoxCollider2D:
   m_Offset: {x: 0.0375309, y: -0.111760914}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.95, y: 0.8}
     newSize: {x: 0.38, y: 0.32}
     adaptiveTilingThreshold: 0.5
@@ -32464,6 +32465,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   animator: {fileID: 0}
   col: {fileID: 0}
+  col2: {fileID: 0}
   healthBarObject: {fileID: 0}
   Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
   PickupCount: 0
@@ -32502,7 +32504,7 @@ BoxCollider2D:
   m_Offset: {x: 0.0375309, y: -0.111760914}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.95, y: 0.8}
     newSize: {x: 0.38, y: 0.32}
     adaptiveTilingThreshold: 0.5
@@ -36726,6 +36728,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   animator: {fileID: 0}
   col: {fileID: 0}
+  col2: {fileID: 0}
   healthBarObject: {fileID: 0}
   Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
   PickupCount: 0
@@ -36764,7 +36767,7 @@ BoxCollider2D:
   m_Offset: {x: 0.0375309, y: -0.08322633}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.95, y: 0.8}
     newSize: {x: 0.38, y: 0.32}
     adaptiveTilingThreshold: 0.5

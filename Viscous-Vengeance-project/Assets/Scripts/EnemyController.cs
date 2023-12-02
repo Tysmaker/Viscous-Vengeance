@@ -22,8 +22,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject Pickup;
     public int PickupCount;
-    
-    private EnemyManager enemyManager;
+    private PortalManager portalManager;
 
     // Start is called before the first frame update
     public void Start()
@@ -35,8 +34,10 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         sr.flipX = true;
         InitializeHealth();
-        enemyManager = FindAnyObjectByType<EnemyManager>();
-        enemyManager.enemyCount++;
+        //Getting reference to the PortalManager Script
+        portalManager = FindAnyObjectByType<PortalManager>();
+        //When enemy gets spawned in it increase the currentEnemyCount by 1;
+        portalManager.currentEnemyCount++;
         col2 = GetComponent<Collider2D>();
     }
 
@@ -55,17 +56,6 @@ public class EnemyController : MonoBehaviour
         {
             sr.flipX = true;
         }
-
-        //if(IsInRange())
-        //{
-        //    animator.SetBool("enemyClose", true);
-        //}
-        //else
-        //{
-        //    animator.SetBool("enemyClose", false);
-        //}
-            
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -124,15 +114,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    //private bool IsInRange()
-    //{
-    //    return Physics2D.OverlapCircle(transform.position, radius, playerLayer);
-    //}
-
-
     IEnumerator DeathTimer()
     {
-        enemyManager.enemyCount--;
+        //When enemy dies decrease currentEnemyCount by 1;
+        portalManager.currentEnemyCount--;
         PickupCreation(PickupCount);
         Destroy(rb);
         col.enabled = false;
