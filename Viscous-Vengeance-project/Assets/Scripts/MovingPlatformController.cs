@@ -9,12 +9,13 @@ public class MovingPlatformController : MonoBehaviour
     Transform endPoint;
     GameObject platform;
 
-    int direction = 1;
+    public int direction { get; private set; }
     [SerializeField] float speed = 0.03f;
 
     // Start is called before the first frame update
     void Start()
     {
+        direction = 1;
         startPoint = transform.Find("Start");
         endPoint = transform.Find("End");
         platform = transform.Find("Platform").gameObject;
