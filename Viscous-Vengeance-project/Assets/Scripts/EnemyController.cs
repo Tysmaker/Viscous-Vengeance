@@ -9,32 +9,29 @@ public class EnemyController : MonoBehaviour
     public int xDirection;
 
     public Rigidbody2D rb;
-    public SpriteRenderer sr;
     public Animator animator;
-    public Collider2D col;
+    public Collider2D col1;
     public Collider2D col2;
     public AudioSource audioSource;
-    public GameObject healthBarObject;
+    private GameObject healthBarObject;
     private PlayerHealthBar playerHealthBar;
     public GameObject Pickup;
     public int PickupCount;
     private PortalManager portalManager;
+    public bool isFacingLeft = false;
 
     // Start is called before the first frame update
     public void Start()
     {
-        xDirection = -1; 
+        xDirection = 1; 
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        //col = GetComponentInChildren<Collider2D>();
-        sr.flipX = true;
         InitializeHealth();
         //Getting reference to the PortalManager Script
         portalManager = FindAnyObjectByType<PortalManager>();
         //When enemy gets spawned in it increase the currentEnemyCount by 1;
         portalManager.currentEnemyCount++;
-        //col2 = GetComponent<Collider2D>();
+        
     }
 
     // Update is called once per frame
@@ -46,11 +43,13 @@ public class EnemyController : MonoBehaviour
         }
         if (xDirection == 1) 
         {
-            sr.flipX = false;
+            gameObject.transform.localScale = new Vector3(1,1,1);
+            isFacingLeft = false;
         }
         else if (xDirection == -1)
         {
-            sr.flipX = true;
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            isFacingLeft = true;      
         }
     }
 
@@ -81,7 +80,9 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !audioSource.isPlaying)
         {
+            playerHealthBar.TakeDamage(20);
             audioSource.Play();
+
         }
     }
 
@@ -126,7 +127,7 @@ public class EnemyController : MonoBehaviour
         portalManager.currentEnemyCount--;
         PickupCreation(PickupCount);
         Destroy(rb);
-        col.enabled = false;
+        col1.enabled = false;
         col2.enabled = false;
         Speed = 0;
         animator.SetBool("enemyDeath", true);

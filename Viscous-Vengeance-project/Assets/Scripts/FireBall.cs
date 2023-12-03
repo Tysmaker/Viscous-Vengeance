@@ -13,6 +13,7 @@ public class FireBall : MonoBehaviour
     {
         parent = gameObject.transform.parent.GetComponent<PlayerController>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+
         if (parent.isFacingLeft)
         {
             direction = -1;

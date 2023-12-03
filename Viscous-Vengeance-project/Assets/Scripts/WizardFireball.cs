@@ -5,36 +5,33 @@ using UnityEngine;
 public class WizardFireBall : MonoBehaviour
 {
     public float fireballSpeed;
-    private WizardController parent;
-    SpriteRenderer sr;
-    int direction;
+    public int direction;
+    private PlayerHealthBar playerHealthBar;
+    private GameObject healthBarObject;
 
     public void Start()
     {
-        parent = gameObject.transform.parent.GetComponent<WizardController>();
-        sr = gameObject.GetComponent<SpriteRenderer>();
-        if (parent.isFacingLeft)
-        {
-            direction = -1;
-        }
-        else
-        {
-            direction = 1;
-        }
-        sr.flipX = parent.isFacingLeft;
+        InitializeHealth();
     }
 
-    // Update is called once per frame
+    // Update is called once per frames
     void Update()
     {
-        transform.position += transform.right * Time.deltaTime * fireballSpeed * direction;
+        transform.position += ((transform.right * Time.deltaTime) * direction)* fireballSpeed;
+    }
+
+    public void InitializeHealth()
+    {
+        healthBarObject = GameObject.Find("Slime");
+        playerHealthBar = healthBarObject.GetComponent<PlayerHealthBar>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            //Destroy(gameObject);
+            playerHealthBar.TakeDamage(20);
+            Destroy(gameObject);
         }
     }
 }
