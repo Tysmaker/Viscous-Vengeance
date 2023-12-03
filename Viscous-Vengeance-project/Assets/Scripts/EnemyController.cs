@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -14,12 +13,9 @@ public class EnemyController : MonoBehaviour
     public Animator animator;
     public Collider2D col;
     public Collider2D col2;
-    private float radius = 10f;
-    private LayerMask playerLayer;
-
+    public AudioSource audioSource;
     public GameObject healthBarObject;
     private PlayerHealthBar playerHealthBar;
-
     public GameObject Pickup;
     public int PickupCount;
     private PortalManager portalManager;
@@ -27,18 +23,18 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        playerLayer = LayerMask.GetMask("Player");
         xDirection = -1; 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        //col = GetComponentInChildren<Collider2D>();
         sr.flipX = true;
         InitializeHealth();
         //Getting reference to the PortalManager Script
         portalManager = FindAnyObjectByType<PortalManager>();
         //When enemy gets spawned in it increase the currentEnemyCount by 1;
         portalManager.currentEnemyCount++;
-        col2 = GetComponent<Collider2D>();
+        //col2 = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -64,9 +60,12 @@ public class EnemyController : MonoBehaviour
         {
             EnemyDeath();
         }
-        else if (collision.gameObject.CompareTag("Player")){
+
+        else if (collision.gameObject.CompareTag("Player") && !audioSource.isPlaying)
+        {
             animator.SetBool("enemyClose", true);
             playerHealthBar.TakeDamage(20);
+            audioSource.Play();
             if (collision.gameObject.transform.position.x < transform.position.x)
             {
                 xDirection = -1;
@@ -75,6 +74,14 @@ public class EnemyController : MonoBehaviour
             {
                 xDirection = 1;
             }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && !audioSource.isPlaying)
+        {
+            audioSource.Play();
         }
     }
 
@@ -102,8 +109,7 @@ public class EnemyController : MonoBehaviour
 
     public void EnemyDeath()
     {
-      
-        StartCoroutine(DeathTimer());   
+        StartCoroutine(DeathTimer());
     }
 
     public void PickupCreation(int num)

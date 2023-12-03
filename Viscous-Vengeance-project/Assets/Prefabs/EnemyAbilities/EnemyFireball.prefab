@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6230472028905815399}
   - component: {fileID: -1724431345981242207}
   - component: {fileID: 487507377187906607}
+  - component: {fileID: 4875289263656628895}
   m_Layer: 0
   m_Name: EnemyFireball
   m_TagString: Untagged
@@ -157,8 +158,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 366315049
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1735442554, guid: b215076e06d0ef84b8bbfb21a0a8a561, type: 3}
   m_Color: {r: 1, g: 0, b: 0.91679955, a: 1}
@@ -267,3 +268,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4875289263656628895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579380553701081398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb47e6d5513d344dbc4810ff3dae9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballSpeed: 10
