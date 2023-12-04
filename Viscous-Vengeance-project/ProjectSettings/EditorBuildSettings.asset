@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: dcf994324befae24384583b16ee6c955
   - enabled: 1
+    path: Assets/Scenes/CaveScene.unity
+    guid: 8cd0b266b4978354ea96ba20c45c3a06
+  - enabled: 1
     path: Assets/Scenes/CastleScene.unity
     guid: 878f1a4dadd3df44e8b009e30b92d202
   m_configObjects:
