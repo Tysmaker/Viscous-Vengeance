@@ -53,6 +53,8 @@ public class EnemyController : MonoBehaviour
         {
             sr.flipX = true;
         }
+
+        //hello
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
