@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8177838136786647170}
   - component: {fileID: 8012364961511444551}
   - component: {fileID: 2487915880004911225}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HomingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,9 +75,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 366315049
+  m_SortingLayer: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 58748615, guid: c39c0037a4ff41740b5a3221d19b7aee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -196,17 +196,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1.45
   xDirection: 0
-  rb: {fileID: 0}
-  sr: {fileID: 0}
-  animator: {fileID: 0}
-  col: {fileID: 0}
-  healthBarObject: {fileID: 0}
-  Pickup: {fileID: 0}
-  PickupCount: 0
-  fireBallInterval: 2
+  rb: {fileID: 6011777333864921635}
+  animator: {fileID: 8012364961511444551}
+  col1: {fileID: 4238746003595372760}
+  col2: {fileID: -8177838136786647170}
+  audioSource: {fileID: 0}
+  Pickup: {fileID: 8836632461193250499, guid: 783107c4b2622314c95b9011e12d0252, type: 3}
+  PickupCount: 1
   isFacingLeft: 0
-  fireballSpeed: 0
-  Fireball: {fileID: 0}
+  fireBallInterval: 2
+  fireballSpeed: 2
+  Fireball: {fileID: 5579380553701081398, guid: bc6f950b8ce270141b511621d3499590, type: 3}
 --- !u!1 &5995195021467012836
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 6178185555232845566}
   - component: {fileID: 4238746003595372760}
   - component: {fileID: 8246916761840783927}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyKillBox (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
