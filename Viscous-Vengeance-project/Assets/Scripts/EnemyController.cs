@@ -8,18 +8,17 @@ public class EnemyController : MonoBehaviour
     
     public int xDirection;
 
-    public Rigidbody2D rb;
-    public SpriteRenderer sr;
+    Rigidbody2D rb;
+    SpriteRenderer sr;
     public Animator animator;
     public Collider2D col;
     public Collider2D col2;
     public AudioSource audioSource;
-    public GameObject healthBarObject;
     private PlayerHealthBar playerHealthBar;
     public GameObject Pickup;
     public int PickupCount;
-    private PortalManager portalManager;
-
+    PortalManager portalManager;
+     
 
     // Start is called before the first frame update
     public void Start()
@@ -30,7 +29,7 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         //col = GetComponentInChildren<Collider2D>();
         sr.flipX = true;
-        InitializeHealth();
+        playerHealthBar = GameObject.Find("Slime").GetComponent<PlayerHealthBar>();
         //Getting reference to the PortalManager Script
         portalManager = FindAnyObjectByType<PortalManager>();
         //When enemy gets spawned in it increase the currentEnemyCount by 1;
@@ -84,12 +83,6 @@ public class EnemyController : MonoBehaviour
         {
             audioSource.Play();
         }
-    }
-
-    public void InitializeHealth()
-    {
-        healthBarObject = GameObject.Find("Slime");
-        playerHealthBar = healthBarObject.GetComponent<PlayerHealthBar>();
     }
 
     private void OnCollisionExit2D(Collision2D collision)

@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     private LayerMask groundLayer;
     public GameObject fireballPrefab;
     Vector3 fireballSpawnPoint;
+    public GameObject dashPrefab;
+    Vector3 dashSpawnPoint;
+
     public bool isFacingLeft { get; private set; }
 
     private bool canFire;
@@ -30,6 +33,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float SlamSpeed = 1;
     [SerializeField] float DashTime = 1;
     [SerializeField] float FireBallCoolDownTime = 1;
+
+    [SerializeField] AudioClip[] audioClips;
+
+    AudioSource audioSource;
 
     private bool isMoving;
     private bool canSplat;
@@ -52,6 +59,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+
 
         groundLayer = LayerMask.GetMask("Ground");
 
@@ -68,6 +77,7 @@ public class PlayerController : MonoBehaviour
         EarthCharges = 0;
 
         fireballSpawnPoint = new Vector3(transform.position.x + 0.88f, transform.position.y - 0.14f, 0);
+        dashSpawnPoint = new Vector3(transform.position.x - 0.88f, transform.position.y);
     }
 
     // Update is called once per frame
@@ -117,7 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         float targetSpeed;
         if(isDashing)
-        {
+        {   
             targetSpeed = DashSpeed;
         }
         else
@@ -142,13 +152,16 @@ public class PlayerController : MonoBehaviour
     void Flip()
     {
         sr.flipX = isFacingLeft;
+        dashPrefab.GetComponent<SpriteRenderer>().flipX = isFacingLeft;
         if (isFacingLeft)
         {
             fireballSpawnPoint = new Vector3(transform.position.x - 0.88f, transform.position.y - 0.14f, 0);
+            dashSpawnPoint = new Vector3(transform.position.x + 0.88f, transform.position.y);
         }
         else
         {
             fireballSpawnPoint = new Vector3(transform.position.x + 0.88f, transform.position.y - 0.14f, 0);
+            dashSpawnPoint = new Vector3(transform.position.x - 0.88f, transform.position.y);
         }
     }
 
@@ -191,6 +204,11 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
+            if(!isDashing)
+            {
+                audioSource.PlayOneShot(audioClips[1]);
+                Instantiate(dashPrefab, dashSpawnPoint, transform.rotation);
+            }
             isDashing= true;
             Invoke("DashCooldown", DashTime);
         }
@@ -226,6 +244,7 @@ public class PlayerController : MonoBehaviour
         if (context.started && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpSpeed);
+            audioSource.PlayOneShot(audioClips[0]);
         }
         if (context.canceled && rb.velocity.y > 0)
         {

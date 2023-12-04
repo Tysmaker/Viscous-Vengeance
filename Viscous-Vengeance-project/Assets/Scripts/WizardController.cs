@@ -16,7 +16,7 @@ public class WizardController : EnemyController
 
     private void Update()
     {
-        
+
         StartCoroutine(ShootFireballs());
     }
 
@@ -25,10 +25,10 @@ public class WizardController : EnemyController
         if (!isShooting)
         {
             isShooting = true;
-            
+
             yield return new WaitForSeconds(fireBallInterval);
 
-            if(isFacingLeft)
+            if (isFacingLeft)
             {
                 fireballSpawnPoint = new Vector3(transform.position.x - 0.88f, transform.position.y + 0.65f, 0);
             }
@@ -36,13 +36,13 @@ public class WizardController : EnemyController
             {
                 fireballSpawnPoint = new Vector3(transform.position.x + 0.88f, transform.position.y + 0.65f, 0);
             }
-           
+
             //Speed = 0;
             animator.SetBool("ShootFireBall", true);
             var fireball = Instantiate(Fireball, fireballSpawnPoint, transform.rotation); ;
             //fireball.transform.parent = gameObject.transform;
             var fireballScript = fireball.GetComponent<WizardFireBall>();
-            if(isFacingLeft)
+            if (isFacingLeft)
             {
                 fireballScript.direction = -1;
             }
@@ -50,8 +50,8 @@ public class WizardController : EnemyController
             {
                 fireballScript.direction = 1;
             }
-            
-            isShooting = false; 
-        }     
+
+            isShooting = false;
+        }
     }
 }   

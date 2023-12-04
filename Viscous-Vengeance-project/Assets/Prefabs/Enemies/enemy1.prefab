@@ -176,14 +176,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1.45
   xDirection: 0
-  rb: {fileID: 2802466019408826693}
   animator: {fileID: 6094828067052110282}
-  col1: {fileID: 5536234191042164957}
-  col2: {fileID: 1617476129617836403}
+  col: {fileID: 1617476129617836403}
+  col2: {fileID: 5536234191042164957}
   audioSource: {fileID: 1012735826413461940}
   Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
   PickupCount: 0
-  isFacingLeft: 0
 --- !u!95 &6094828067052110282
 Animator:
   serializedVersion: 5
