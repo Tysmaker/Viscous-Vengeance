@@ -51,6 +51,8 @@ public class EnemyController : MonoBehaviour
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
             isFacingLeft = true;      
         }
+
+        //hello
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
