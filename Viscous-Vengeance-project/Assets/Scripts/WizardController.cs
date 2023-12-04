@@ -1,3 +1,4 @@
+//
 using Cinemachine.Utility;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ public class WizardController : EnemyController
     private bool isShooting = false;
     public float fireballSpeed;
     public GameObject Fireball;
+    public bool isFacingLeft;
+    
 
     private void Update()
     {
