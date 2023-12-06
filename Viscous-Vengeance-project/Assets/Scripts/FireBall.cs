@@ -17,10 +17,12 @@ public class FireBall : MonoBehaviour
         if (parent.isFacingLeft)
         {
             direction = -1;
+               
         }
         else
         {
             direction = 1;
+            
         }
         sr.flipX = parent.isFacingLeft;
     }
