@@ -14,7 +14,9 @@ public class ElementsPickUp : MonoBehaviour
     private float radius = 3f;
     private LayerMask playerLayer;
     private bool collect;
-    public ElementsUIPoints elementsUIPoints;
+    private GameObject healthBarObject;
+    private PlayerHealthBar playerHealthBar;
+    //public ElementsUIPoints elementsUIPoints;
 
     //[SerializeField] ParticleSystem pickUpEffect;
 
@@ -22,7 +24,8 @@ public class ElementsPickUp : MonoBehaviour
     {
         playerLayer = LayerMask.GetMask("Player");
         player = GameObject.Find("Slime");
-        elementsUIPoints = GameObject.Find("Elements").GetComponent<ElementsUIPoints>();
+        //elementsUIPoints = GameObject.Find("Elements").GetComponent<ElementsUIPoints>();
+        InitializeHealth();
     }
 
     private void Update()
@@ -45,11 +48,19 @@ public class ElementsPickUp : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            AddCharge(gameObject.name);
-           //pickUpEffect.Play();
-           Destroy(gameObject);
+            //AddCharge(gameObject.name);
+            playerHealthBar.HealPlayer(5);
+            //pickUpEffect.Play();
+            Destroy(gameObject);
         }
     }
+
+    public void InitializeHealth()
+    {
+        healthBarObject = GameObject.Find("Slime");
+        playerHealthBar = healthBarObject.GetComponent<PlayerHealthBar>();
+    }
+
 
     public void AddCharge(string name)
     {
@@ -57,19 +68,19 @@ public class ElementsPickUp : MonoBehaviour
         switch (name)
         {
             case "Fire(Clone)":
-                elementsUIPoints.FireCharges++;
+                //elementsUIPoints.FireCharges++;
                 pc.FireCharges++;
                 break;
             case "Wind(Clone)":
-                elementsUIPoints.WindCharges++;
+               // elementsUIPoints.WindCharges++;
                 pc.WindCharges++;
                 break;
             case "Lightning(Clone)":
-                elementsUIPoints.LightningCharges++;
+               // elementsUIPoints.LightningCharges++;
                 pc.LightningCharges++;
                 break;
             case "Earth(Clone)":
-                elementsUIPoints.EarthCharges++;
+               // elementsUIPoints.EarthCharges++;
                 pc.EarthCharges++;
                 break;                          
         }

@@ -34,4 +34,11 @@ public class PlayerHealthBar : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
     }
+
+    public void HealPlayer(int health)
+    {
+        currentHealth += health;
+
+        healthBar.SetHealth(currentHealth);
+    }
 }

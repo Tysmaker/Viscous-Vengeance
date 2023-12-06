@@ -116,5 +116,5 @@ MonoBehaviour:
   - {fileID: 1101878694911323607, guid: 3b02dd03f89c2a1489d5be8f7eb61165, type: 3}
   - {fileID: 8143137283176413060, guid: f1b48fa43297ec64486acc360c8cfe47, type: 3}
   - {fileID: 2223563903684994332, guid: 3ea31f7e041b3eb44a78fc49c8ca48f5, type: 3}
-  totalEnemyCount: 0
-  maxEnemyCount: 12
+  currentEnemyCount: 0
+  minEnemyCount: 0

@@ -8,16 +8,29 @@ public class WizardFireBall : MonoBehaviour
     public int direction;
     private PlayerHealthBar playerHealthBar;
     private GameObject healthBarObject;
+    SpriteRenderer sr;
 
     public void Start()
     {
         InitializeHealth();
+        sr = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frames
     void Update()
     {
         transform.position += ((transform.right * Time.deltaTime) * direction)* fireballSpeed;
+
+        if (direction == -1)
+        {
+            sr.flipX = true;
+
+        }
+        else
+        {
+            sr.flipX = false;
+
+        }
     }
 
     public void InitializeHealth()
@@ -33,5 +46,6 @@ public class WizardFireBall : MonoBehaviour
             playerHealthBar.TakeDamage(20);
             Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }

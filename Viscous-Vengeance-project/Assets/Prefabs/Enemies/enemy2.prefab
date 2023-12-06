@@ -220,8 +220,7 @@ MonoBehaviour:
   col1: {fileID: 1369557451557060083}
   col2: {fileID: 628332885968462449}
   audioSource: {fileID: 2200143589343624227}
-  healthBarObject: {fileID: 0}
-  Pickup: {fileID: 357518345422163574, guid: 516925dec4ffd2e4fbe48bdd6b9291a7, type: 3}
+  Pickup: {fileID: 2877937826363202947, guid: a7c2bec9f9ae77c4dbeea755c5eb394c, type: 3}
   PickupCount: 0
   isFacingLeft: 0
 --- !u!50 &1013134165842420076
@@ -236,7 +235,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
