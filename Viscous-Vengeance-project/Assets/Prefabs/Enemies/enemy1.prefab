@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -180,7 +180,7 @@ MonoBehaviour:
   col: {fileID: 1617476129617836403}
   col2: {fileID: 5536234191042164957}
   audioSource: {fileID: 1012735826413461940}
-  Pickup: {fileID: 3275301952837175355, guid: d9ead49d8ab3fa244b97010b9f6fe408, type: 3}
+  Pickup: {fileID: 2877937826363202947, guid: a7c2bec9f9ae77c4dbeea755c5eb394c, type: 3}
   PickupCount: 0
 --- !u!95 &6094828067052110282
 Animator:

@@ -15,13 +15,13 @@ public class PortalManager : MonoBehaviour
     [Header("Enemy Variables")]
     public GameObject[] enemyPrefabs;
     public int currentEnemyCount;
-    public int maxEnemyCount;
+    public int minEnemyCount;
    
 
     // Update is called once per frame
     void Update()
     {
-        if (currentEnemyCount < maxEnemyCount)
+        if (currentEnemyCount < minEnemyCount)
         {
             StartCoroutine(StartPortalSpawning());
         }
@@ -35,7 +35,7 @@ public class PortalManager : MonoBehaviour
 
             yield return new WaitForSeconds(10);
 
-            if (currentEnemyCount < maxEnemyCount)
+            if (currentEnemyCount < minEnemyCount)
             {
                 RandomPortalSpawn();
             }
