@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerTeleport : MonoBehaviour
 {
     private GameObject currentDoor;
-    void Update()
+
+    public void EnterDoor(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if(context.started)
         {
-            if(currentDoor != null) 
+            if (currentDoor != null)
             {
                 transform.position = currentDoor.GetComponent<MysteryDoor>().GoDestination().position;
             }
