@@ -267,16 +267,17 @@ MonoBehaviour:
   Speed: 1.5
   xDirection: 0
   rb: {fileID: 8825062821332447706}
+  sr: {fileID: 0}
   animator: {fileID: 7750422820617015783}
-  col1: {fileID: 2021603537986684119}
-  col2: {fileID: 1993296139783908624}
+  col: {fileID: 0}
+  col2: {fileID: 0}
   audioSource: {fileID: 0}
   Pickup: {fileID: 2877937826363202947, guid: a7c2bec9f9ae77c4dbeea755c5eb394c, type: 3}
   PickupCount: 0
-  isFacingLeft: 0
   fireBallInterval: 2
   fireballSpeed: 2
   Fireball: {fileID: 5579380553701081398, guid: bc6f950b8ce270141b511621d3499590, type: 3}
+  isFacingLeft: 0
 --- !u!95 &7750422820617015783
 Animator:
   serializedVersion: 5

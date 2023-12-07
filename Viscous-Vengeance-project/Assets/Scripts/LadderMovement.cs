@@ -9,7 +9,12 @@ public class LadderMovement : MonoBehaviour
     private bool  isLadder;
     private bool  isClimbing;
 
-    [SerializeField] private Rigidbody2D rb;
+    private Rigidbody2D rb;
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     // Update is called once per frame
     void Update()
     {

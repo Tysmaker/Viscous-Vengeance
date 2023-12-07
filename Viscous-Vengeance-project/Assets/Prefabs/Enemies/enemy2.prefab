@@ -216,13 +216,13 @@ MonoBehaviour:
   Speed: 1.45
   xDirection: 0
   rb: {fileID: 1013134165842420076}
+  sr: {fileID: 0}
   animator: {fileID: 683256476561123378}
-  col1: {fileID: 1369557451557060083}
-  col2: {fileID: 628332885968462449}
+  col: {fileID: 0}
+  col2: {fileID: 0}
   audioSource: {fileID: 2200143589343624227}
   Pickup: {fileID: 2877937826363202947, guid: a7c2bec9f9ae77c4dbeea755c5eb394c, type: 3}
   PickupCount: 0
-  isFacingLeft: 0
 --- !u!50 &1013134165842420076
 Rigidbody2D:
   serializedVersion: 4
