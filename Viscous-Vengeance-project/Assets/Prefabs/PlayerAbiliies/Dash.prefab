@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4798929375490179522}
   - component: {fileID: 2596268896382101529}
   - component: {fileID: 3824946443223379575}
+  - component: {fileID: 5131255000065628117}
   m_Layer: 6
   m_Name: Dash
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -1034958542, guid: 2a4e8291c28cbcf45872fbde4ac5317a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 5.875, y: 2}
@@ -106,3 +107,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5131255000065628117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31395998554320362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c0faa8e6955474cb56b5d1dbaa96dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,7 +12,6 @@ public class WizardFireBall : MonoBehaviour
 
     public void Start()
     {
-        InitializeHealth();
         sr = gameObject.GetComponent<SpriteRenderer>();
     }
 

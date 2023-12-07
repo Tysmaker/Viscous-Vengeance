@@ -269,7 +269,7 @@ MonoBehaviour:
   animator: {fileID: 7750422820617015783}
   col: {fileID: 1993296139783908624}
   col2: {fileID: 2021603537986684119}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 4552246657960759776}
   Pickup: {fileID: 2877937826363202947, guid: a7c2bec9f9ae77c4dbeea755c5eb394c, type: 3}
   PickupCount: 0
   fireBallInterval: 2
@@ -307,7 +307,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 86bceee23d6963c4da69f43870541c82, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
